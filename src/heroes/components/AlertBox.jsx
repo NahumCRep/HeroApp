@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AlertBox = ({ query, dataLength }) => {
+const AlertBox = ({ query = '', dataLength }) => {
 
     const showSearchBox = (query === '')
     const showErrorBox = (query !== '') && (dataLength === 0)
