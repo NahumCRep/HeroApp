@@ -57,6 +57,7 @@ const Navbar = () => {
                     <button 
                         className='nav-item nav-link btn'
                         onClick={handleLogout}
+                        aria-label="logout"
                     >
                         logout
                     </button>
