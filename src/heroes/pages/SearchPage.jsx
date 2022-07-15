@@ -7,12 +7,12 @@ import { getHeroesByName } from '../helpers'
 
 const SearchPage = () => {
 
-  const { searchText, onInputChange, onResetForm } = useForm({ searchText: '' })
   const navigate = useNavigate()
   const location = useLocation()
-
-  const { q } = queryString.parse(location.search)
+  
+  const { q = '' } = queryString.parse(location.search)
   const heroes = getHeroesByName(q)
+  const { searchText, onInputChange, onResetForm } = useForm({ searchText: q })
 
   const handleSearchSubmit = (e) => {
     e.preventDefault()
@@ -27,7 +27,7 @@ const SearchPage = () => {
 
       <div className="row">
         <div className="col-5">
-          <form onSubmit={handleSearchSubmit}>
+          <form onSubmit={handleSearchSubmit} aria-label="form">
             <input
               type="text"
               placeholder="Search a hero..."
